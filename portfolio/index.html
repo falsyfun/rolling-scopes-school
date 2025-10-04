@@ -11,6 +11,22 @@
 </head>
 
 <body class="page">
+  <div class="overlay"></div>
+  <div class="modal">
+    <div class="modal__wrapper">
+      <div class="modal__close">
+        <span></span>
+      </div>
+      <div class="signup">
+        <h3 class="signup__title h-3 h">Like my portfolio? Sign up for a shoot!</h3>
+        <div class="signup__form">
+          <input type="text" name="name" placeholder="your name">
+          <input type="text" name="tel" onkeypress="return /[0-9]/i.test(event.key)" value="+1">
+          <button class="signup__btn">book now</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <header class="header">
     <div class="header__wrapper wrapper">
       <img src="./images/logo.png" alt="logo" width="20" height="20">
@@ -186,7 +202,7 @@
             </div>
             <div class="price-card__buy">
               <p>For short sessions and quick results</p>
-              <button>Book now</button>
+              <button class="price__btn">Book now</button>
             </div>
           </div>
           <div class="price-card">
@@ -219,7 +235,7 @@
             </div>
             <div class="price-card__buy">
               <p>Perfect for couples, portraits, or lifestyle</p>
-              <button>Book now</button>
+              <button class="price__btn">Book now</button>
             </div>
           </div>
           <div class="price-card">
@@ -255,7 +271,7 @@
             </div>
             <div class="price-card__buy">
               <p>For when you want to capture everything</p>
-              <button>Book now</button>
+              <button class="price__btn">Book now</button>
             </div>
           </div>
           <div class="price-card">
@@ -291,7 +307,7 @@
             </div>
             <div class="price-card__buy">
               <p>Full-day or partial wedding coverage</p>
-              <button>Book now</button>
+              <button class="price__btn">Book now</button>
             </div>
           </div>
         </div>
@@ -339,15 +355,21 @@
         </div>
       </div>
     </section>
+    <section class="book-now">
+      <div class="book-now__wrapper wrapper">
+        <div class="signup">
+          <h3 class="signup__title h-3 h">Like my portfolio? Sign up for a shoot!</h3>
+          <div class="signup__form">
+            <input type="text" name="name" placeholder="your name">
+            <input type="text" name="tel" onkeypress="return /[0-9]/i.test(event.key)" value="+1">
+            <button class="signup__btn">book now</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
   <footer id="footer" class="footer">
     <div class="footer__wrapper wrapper">
-      <h3 class="footer__title h-3 h">Like my portfolio? Sign up for a shoot!</h3>
-      <div class="signup">
-        <input id="input-name" type="text" name="name" placeholder="your name">
-        <input id="input-tel" type="text" name="tel" onkeypress="return /[0-9]/i.test(event.key)" value="+1">
-        <button class="signup__btn">book now</button>
-      </div>
       <ul class="contacts">
         <li class="contacts__item">
           <a class="contacts__link link" href="#">instagram</a>
