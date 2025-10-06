@@ -64,11 +64,6 @@
   --white: #ffffff;
 }
 
-.page {
-  font-size: 1.6rem;
-
-}
-
 a {
   text-decoration: none;
 }
@@ -172,6 +167,111 @@ details[open] summary {
   }
 }
 
+.stop-scroll {
+  overflow: hidden;
+}
+
+.page {
+ font-size: 1.6rem;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 10;
+  top: -9999px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--dark);
+  opacity: 0;
+  transition: opacity ease 0.5s;
+}
+
+.overlay-show {
+  top: 0;
+  opacity: 0.6;
+}
+
+.modal {
+  text-align: center;
+  align-items: center;
+  #padding: 0 20px;
+  #width: 400px;
+  position: fixed;
+  z-index: 11;
+  top: -9999px;
+  left: 0;
+  transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+  #background-color: var(--white);
+  opacity: 0;
+  transition: ease opacity 0.5s;
+}
+
+.modal-show {
+  top: 0;
+  opacity: 1;
+}
+
+.modal__wrapper {
+  padding: 60px;
+  background-color: var(--white);
+  position: relative;
+}
+
+.modal__close {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 12;
+  #border-radius: 100px;
+  cursor: pointer;
+}
+
+.modal__close > span,
+.modal__close > span::before,
+.modal__close > span::after {
+  display: block;
+  position: absolute;
+  background-color: var(--dark);
+  transition: all ease 0.50s;
+}
+
+.modal__close > span::before {
+  content: '';
+  top: -1px;
+  left: -8px;
+  width: 20px;
+  height: 2px;
+  transform: rotate(45deg);
+}
+
+.modal__close > span::after {
+  content: '';
+  top: -1px;
+  left: -8px;
+  width: 20px;
+  height: 2px;
+  transform: rotate(-45deg);
+}
+
+.modal .signup {
+  min-height: 236px;
+}
+
+.modal .signup__form {
+  flex-direction: column;
+}
+
+.modal .signup__btn {
+  width: 100%;
+}
+
+
 .h {
   text-transform: uppercase;
 }
@@ -222,7 +322,7 @@ details[open] summary {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 18px 20px;
+  padding: 0 20px;
 }
 
 .nav {
@@ -242,10 +342,15 @@ details[open] summary {
 
 .nav__menu-item {
   list-style: none;
+  height: 60px;
 }
 
 .nav__menu-link {
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .hero {
@@ -422,6 +527,7 @@ details[open] summary {
   width: 100%;
   height: 100%;
   position: absolute;
+  z-index: 1;
 }
 
 .slider__actions div{
@@ -446,15 +552,11 @@ details[open] summary {
 .slider__slides {
   display: flex;
   align-items: center;
-  transform: translateX(-32%);
+  transform: translateX(-1240px);
   gap: 20px;
   width: fit-content;
   transition: transform ease 0.5s;
   height: 654px;
-}
-
-.slider__slides {
-
 }
 
 .slider__slides-item {
@@ -583,25 +685,46 @@ details[open] summary {
   #letter-spacing: -0.1px;
 }
 
+.book-now__wrapper {
+  padding: 40px 20px 20px 20px;
+}
+
+.footer {
+  background-color: var(--dark);
+}
+
 .footer__wrapper {
+  #flex-direction: column;
+  #align-items: center;
+  #gap: 20px;
+  padding: 0;
+}
+
+.signup{
+  display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding: 40px 0 0 0;
+  #gap: 20px;
+  width: 100%;
+  min-height: 108px;
+  #padding: 0 20px;
 }
 
-.footer__title {
-  letter-spacing: -0.1px;
-}
-
-.signup {
+.signup__form {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 8px;
   width: 100%;
 }
 
-#input-name {
+.signup__title {
+  margin-bottom: auto;
+  letter-spacing: -0.1px;
+}
+
+input[type=text] {
   text-transform: uppercase;
 }
 
@@ -674,18 +797,26 @@ details[open] summary {
     height: 60px;
   }
 
+  .header__wrapper > img {
+    position: relative;
+    z-index: 9;
+  }
+
   #nav__toggle:checked~.nav__hamburger>span::before {
-    top: 0;
+    top: -1px;
+    left: -8px;
+    width: 20px;
     transform: rotate(45deg);
   }
 
   #nav__toggle:checked~.nav__hamburger>span::after {
-    top: 0;
+    top: -1px;
+    left: -8px;
     transform: rotate(-45deg);
   }
 
   #nav__toggle:checked~.nav__menu {
-    #right: 0;
+    right: 0;
   }
 
   .nav__hamburger {
@@ -735,9 +866,13 @@ details[open] summary {
     padding-top: 60px;
     width: 100vw;
     min-height: 100vh;
-    gap: 8px;
+    gap: 0;
     transition: right ease 0.2s;
     z-index: 8;
+  }
+
+  .nav__menu-item {
+    width: 100%;
   }
 
   .hero-date span:nth-child(1) {
@@ -763,7 +898,7 @@ details[open] summary {
   }
 
   .slider__slides {
-    transform: translateX(-40.6%);
+    transform: translateX(-1576px);
   }
 
   .faq__wrapper {
@@ -779,12 +914,8 @@ details[open] summary {
     width: auto;
   }
 
-  .signup {
-    padding: 0 20px;
-  }
-
   input {
-    width: 256px;
+    #width: 256px;
   }
 }
 
@@ -822,9 +953,8 @@ details[open] summary {
     width: 100%;
   }
 
-  .signup {
-    flex-direction: column;
-    align-items: center;
+  .modal {
+    padding: 0 20px;
   }
 
   .signup__btn {
@@ -842,10 +972,26 @@ details[open] summary {
   .page {
     min-width: 320px;
   }
-  .slider__slides {
-    transform: translateX(-45.6%);
+
+  .modal__wrapper {
+    padding: 60px 20px;
   }
 
+  .modal .signup {
+    min-height: 264px;
+  }
+
+  .slider__slides {
+    transform: translateX(-1770px);
+  }
+
+  .signup {
+    min-height: 244px;
+  }
+
+  .signup__form {
+    flex-direction: column;
+  }
 }
 
 @media (hover: hover) {
