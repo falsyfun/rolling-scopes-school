@@ -195,7 +195,7 @@ details[open] summary {
 .modal {
   text-align: center;
   align-items: center;
-  padding: 0 20px;
+  #padding: 0 20px;
   #width: 400px;
   position: fixed;
   z-index: 11;
@@ -527,6 +527,7 @@ details[open] summary {
   width: 100%;
   height: 100%;
   position: absolute;
+  z-index: 1;
 }
 
 .slider__actions div{
@@ -551,15 +552,11 @@ details[open] summary {
 .slider__slides {
   display: flex;
   align-items: center;
-  transform: translateX(-32%);
+  transform: translateX(-1240px);
   gap: 20px;
   width: fit-content;
   transition: transform ease 0.5s;
   height: 654px;
-}
-
-.slider__slides {
-
 }
 
 .slider__slides-item {
@@ -901,7 +898,7 @@ input[type=text] {
   }
 
   .slider__slides {
-    transform: translateX(-40.6%);
+    transform: translateX(-1576px);
   }
 
   .faq__wrapper {
@@ -956,6 +953,10 @@ input[type=text] {
     width: 100%;
   }
 
+  .modal {
+    padding: 0 20px;
+  }
+
   .signup__btn {
     width: 100%;
   }
@@ -981,7 +982,7 @@ input[type=text] {
   }
 
   .slider__slides {
-    transform: translateX(-45.6%);
+    transform: translateX(-1770px);
   }
 
   .signup {
