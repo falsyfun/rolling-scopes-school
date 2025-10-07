@@ -85,8 +85,8 @@ function resetSlidePosition() {
 }
 
 function checkDirection() {
-  if (touchendX < touchstartX && slidesTransX > (-maxWidth + 300)) moveSlideRight(300)
-  if (touchendX > touchstartX && slidesTransX < (0 - 300)) moveSlideLeft(300)
+  if (touchendX < touchstartX && slidesTransX > -maxWidth) moveSlideRight(20)
+  if (touchendX > touchstartX && slidesTransX < 0) moveSlideLeft(20)
 }
 
 //////////////////////////////
@@ -131,10 +131,9 @@ SLIDER_RIGTH.addEventListener('mouseout', () => {
 
 SLIDER_ACTIONS.addEventListener('touchstart', e => {
   touchstartX = e.changedTouches[0].screenX
-  checkDirection()
 })
 
-SLIDER_ACTIONS.addEventListener('touchend', e => {
+SLIDER_ACTIONS.addEventListener('touchmove', e => {
   touchendX = e.changedTouches[0].screenX
   checkDirection()
 })
