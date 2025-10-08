@@ -15,6 +15,8 @@ const SLIDER_RIGTH = document.querySelector('.slider__actions-right');
 
 const PRICE_BTN = document.querySelectorAll('.price__btn');
 
+const FAQ_LIST_ITEM = document.querySelectorAll('.faq__list-item')
+
 let maxWidth = Math.ceil(3880 - SLIDER_VIEW.clientWidth);
 let slidesTransX = Math.ceil(-maxWidth / 2);
 let interval;
@@ -90,6 +92,34 @@ function checkDirection() {
 }
 
 //////////////////////////////
+// ACCORDION
+//////////////////////////////
+
+function toggleDetails(event) {
+  if (!event.target.open) return;
+  for (let details of [...FAQ_LIST_ITEM]) {
+    details.open = details === event.target;
+  }
+}
+
+function saveDetailsState(detailsId) {
+  let sessionStorageKey = 'detailsOpen_' + detailsId;
+  let details = document.querySelector(`[data-id="${detailsId}"]`);
+
+  details.addEventListener('toggle', (event) => {
+    if (details.open) {
+      sessionStorage.setItem(sessionStorageKey, true);
+    } else {
+      sessionStorage.removeItem(sessionStorageKey);
+    }
+  });
+
+  if (sessionStorage.getItem(sessionStorageKey)) {
+    details.open = true;
+  }
+}
+
+//////////////////////////////
 // EVENTS
 //////////////////////////////
 
@@ -140,6 +170,12 @@ SLIDER_ACTIONS.addEventListener('touchmove', e => {
 
 PRICE_BTN.forEach((elem) => {
   elem.addEventListener('click', showOverlay);
+});
+
+FAQ_LIST_ITEM.forEach((details, index) => {
+  details.dataset.id = index;
+  saveDetailsState(index);
+  details.addEventListener('toggle', toggleDetails);
 });
 
 window.addEventListener('resize', (event) => {
