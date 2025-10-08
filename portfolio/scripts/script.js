@@ -174,8 +174,8 @@ PRICE_BTN.forEach((elem) => {
 
 FAQ_LIST_ITEM.forEach((details, index) => {
   details.dataset.id = index;
-  saveDetailsState(index);
   details.addEventListener('toggle', toggleDetails);
+  saveDetailsState(index);
 });
 
 window.addEventListener('resize', (event) => {
