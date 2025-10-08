@@ -160,7 +160,7 @@ summary {
 }
 
 details[open] summary {
-  pointer-events: none;
+  #pointer-events: none;
 
   &::after {
     transform: rotate(0deg);
