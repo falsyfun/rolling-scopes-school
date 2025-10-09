@@ -113,10 +113,6 @@ function saveDetailsState(detailsId) {
       sessionStorage.removeItem(sessionStorageKey);
     }
   });
-
-  if (sessionStorage.getItem(sessionStorageKey)) {
-    details.open = true;
-  }
 }
 
 //////////////////////////////
@@ -174,8 +170,23 @@ PRICE_BTN.forEach((elem) => {
 
 FAQ_LIST_ITEM.forEach((details, index) => {
   details.dataset.id = index;
-  details.addEventListener('toggle', toggleDetails);
-  saveDetailsState(index);
+  const id = details.dataset.id;
+
+  if (id) {
+    const storedState = sessionStorage.getItem(`details-${id}-open`);
+    if (storedState === 'true') {
+      details.setAttribute('open', '');
+    } else {
+      details.removeAttribute('open');
+    }
+  }
+
+  details.addEventListener('toggle', () => {
+    const id = details.dataset.id;
+    if (id) {
+      sessionStorage.setItem(`details-${id}-open`, details.open);
+    }
+  });
 });
 
 window.addEventListener('resize', (event) => {
