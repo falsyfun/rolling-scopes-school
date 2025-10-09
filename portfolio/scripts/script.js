@@ -158,13 +158,14 @@ PRICE_BTN.forEach((elem) => {
 FAQ_LIST_ITEM.forEach((details, index) => {
   details.dataset.id = index;
   const id = details.dataset.id;
+  sessionStorage.setItem(`details-${0}-open`, details.open);
 
   if (id) {
     const storedState = sessionStorage.getItem(`details-${id}-open`);
     if (storedState === 'true') {
-      details.setAttribute('open', '');
+      details.open = true;
     } else {
-      details.removeAttribute('open');
+      details.open = false;
     }
   }
 
