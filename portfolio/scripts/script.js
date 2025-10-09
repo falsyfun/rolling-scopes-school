@@ -95,24 +95,11 @@ function checkDirection() {
 // ACCORDION
 //////////////////////////////
 
-function toggleDetails(event) {
+function toggleDetails() {
   if (!event.target.open) return;
   for (let details of [...FAQ_LIST_ITEM]) {
     details.open = details === event.target;
   }
-}
-
-function saveDetailsState(detailsId) {
-  let sessionStorageKey = 'detailsOpen_' + detailsId;
-  let details = document.querySelector(`[data-id="${detailsId}"]`);
-
-  details.addEventListener('toggle', (event) => {
-    if (details.open) {
-      sessionStorage.setItem(sessionStorageKey, true);
-    } else {
-      sessionStorage.removeItem(sessionStorageKey);
-    }
-  });
 }
 
 //////////////////////////////
